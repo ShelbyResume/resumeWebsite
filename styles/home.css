@@ -1,0 +1,217 @@
+/* the styles for the elements */
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	background-color: white;
+}
+body {
+	display: grid;
+	grid-template: repeat(4, auto) / 1fr;
+	header{grid-row: 1/2; grid-column: 1;}
+	nav{grid-row: 2/3; grid-column: 1;}
+	main{grid-row: 3/4; grid-column: 1}
+	footer{grid-row: 4/5; grid-column: 1;}
+	/*grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr;*/
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    width: 98%;                     /* changed from 800 pixels */
+    max-width: 960px;
+    margin: 0 auto;
+    border: 3px solid #931420;
+    background-color: #ddfff8;
+}
+main {
+	display: grid;
+	grid-template: 1fr/30% 1fr;
+	grid-gap: 0/2.5%;
+	aside{grid-row: 1; grid-column: 1/2;}
+	section{grid-row: 1; grid-column: 2/3;}
+}
+a:focus, a:hover {
+	font-style: italic;
+}
+/* the styles for the header */
+header {
+	padding: 80px 0 80px 0;
+	border-bottom: 3px solid #931420;
+	background-image: linear-gradient(
+	    30deg, #f1ff51 0%, #f1ff51 30%, white 50%, #f1ff51 80%, #f1ff51 100%);
+}
+header h2 {
+	font-size: 175%;
+	color: #000680;
+}
+header h3 {
+	font-size: 130%;
+	font-style: italic;
+}
+header img {
+	float: left;
+	padding: 0 3.75%;
+}
+.shadow {
+	text-shadow: 2px 2px 2px #000680;
+}
+/* the styles for the navigation menu */
+#nav_menu ul {
+	/*how to center the row vertically within the grid?*/
+	display: grid;
+	grid-template: 1fr/repeat(5, 20%);
+	justify-content: center;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#nav_menu ul li a {
+    display: block;
+    text-align: center;
+    padding: 1em 0;
+    text-decoration: none;
+    background-color: #000680;
+    color: white;
+    font-weight: bold;
+}
+#nav_menu a.current {
+	color: yellow;
+}
+
+/* the styles for the section */
+section {
+    padding: 0 2.5% 20px 0;
+}
+section h1 {
+	font-size: 150%;
+	padding: .5em 0 .25em 0;
+	margin: 0;
+}
+section h2 {
+	color: #000680;
+	font-size: 130%;
+	padding: .5em 0 .25em 0;
+}
+section p {
+	padding-bottom: .5em;
+	float: right;
+}
+section blockquote {
+	padding: 0 2em;
+	font-style: italic;
+}
+section ul {
+	padding: 0 0 .25em 1.25em;
+	list-style-type: circle;
+}
+section li {
+	padding-bottom: .35em;
+}
+
+/* the styles for the article */
+article {
+	padding: .5em 0;
+	border-top: 2px solid #000680;
+	border-bottom: 2px solid #000680;
+}
+article h2 {
+	padding-top: 0;
+}
+article h3 {
+	font-size: 105%;
+	padding-bottom: .25em;
+}
+article img {
+	float: right;
+	max-width: 40%;
+	min-width: 150px;
+	margin: .5em 0 1em 1em;
+	border: 1px solid black;
+}
+
+/* the styles for the aside */
+aside {
+    padding: 0 0 20px 2.5%;
+}
+aside h2 {
+	color: #000680;
+	font-size: 130%;
+	padding: .5em 0 .25em 0;
+}
+aside h3 {
+	font-size: 105%;
+	padding-bottom: .25em;
+}
+aside img {
+	padding-bottom: 1em;
+}
+
+/* the styles for the footer */
+footer {
+	background-color: #000680;
+}
+footer p {
+	text-align: center;
+	color: white;
+	padding: 1em 0;
+}
+#mobile_menu {
+	display: none;
+}
+
+@media only screen and (max-width: 734px) {
+	section h1 {
+		font-size: 125%
+	}
+	section h2, aside h2 {
+		font-size: 110%;
+	}
+	aside h3 a {
+		font-size: 85%;
+	}
+}
+
+@media only screen and (max-width: 648px) {
+	header {
+		display: grid;
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-columns: 1fr;
+		grid-gap: 0.5em;
+		padding: 1em 0 1em 0;
+		#nav_menu{ grid-row: 1/2; grid-column: 1;}
+	}
+	main{
+		display: grid;
+		grid-template: 1fr 1fr / 1fr;
+		section{grid-row: 1/2; grid-column: 1/2;}
+		aside{grid-row: 2/3; grid-column: 1/2;}
+
+	}
+	header img { float: none; }
+	header { text-align: center; }
+	section {
+		width: 95%;
+		padding: 0 2.5%;
+	}
+	aside {
+		padding: 0 2.5%;
+		width: 95%;
+	}
+	article img { max-width: 30%; }
+	#speakers {
+		column-count: 2;
+	}
+	#nav_menu {
+		display: none;
+	}
+	#mobile_menu {
+		display: block;
+	}
+	.slicknav_menu {
+		background-color: #000680 !important;
+	}
+}
+
+@media only screen and (max-width: 414px) {
+	body { font-size: 90%; }
+}
