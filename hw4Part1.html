@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="JavaScript Class" content="JavaScript Practice Pages">
+        <title>JavaScript Class Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    	<link rel="stylesheet" href="styles.css">
+        <script>
+            function process()
+            {
+                var forProduct, forSum, whileProduct, whileSum, j;
+                forProduct = 1;
+                forSum = 0;
+                whileProduct = 1;
+                whileSum = 0;
+                j = 3;
+                k = 3;
+
+                    for (var i = 5; (i <= 25); i=i+4){
+                        forProduct = forProduct * i;
+                    }
+                    document.forms["myForm"].elements["result"].value += ("\n The result of 5 * 9 * 13 * 17 * 21 * 25 using a for loop is: " + forProduct.toLocaleString());
+                    for (var i = 5; (i <= 25); i=i+4){
+                        forSum = forSum + i;
+                    }
+                    document.forms["myForm"].elements["result"].value += ("\n The result of 5 + 9 + 13 + 17 + 21 + 25 using a for loop is: " + forSum.toLocaleString());
+                    while (j<=18){
+                        whileProduct = whileProduct * j;
+                        j = j + 3;
+                    }
+                    document.forms["myForm"].elements["result"].value += ("\n The result of  3 * 6 * 9 * 12 * 15 * 18 using a while loop is: " + whileProduct.toLocaleString());
+                    while (k<=18){
+                        whileSum = whileSum + j;
+                        k = k + 3;
+                    }
+                    document.forms["myForm"].elements["result"].value += ("\n The result of 3 + 6 + 9 + 12 + 15 + 18 using a while loop is: " + whileSum.toLocaleString());
+                    
+                }
+        </script>
+    </head>
+    <body>
+<header>
+    <h1>
+Homework 4 - Looping Operations
+    </h1>
+</header>
+
+<section>
+<h2>
+<br>
+<a href="hw1.html">Home Page</a>
+<br>
+<a href="hw4.html">Homework 4 Main Page</a>
+<br>
+<a href="hw4Part2.html">Part 2</a>
+<br>
+
+<br>
+<form name="myForm">
+    <input type="button" onclick="process()" value="CALCULATE">
+    The result of the loops are:
+    <textarea name="result" placeholder="Answer" rows="10" cols="40" readonly></textarea>
+</form>
+</h2>
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="JavaScript Class" content="JavaScript Practice Pages">
+        <title>JavaScript Class Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    	<link rel="stylesheet" href="styles.css">
+        <script>
+            function process()
+            {
+                var hwAvg, mtScore, fnScore, ptScore, finalAvg, n1, n2, n3, n4, finalStudentGrade, firstBoxMissing, secondBoxMissing, thirdBoxMissing, fourthBoxMissing;
+                finalStudentGrade = "error. "
+                document.forms["myForm"].elements["result"].value = ""
+                hwAvg = document.getElementById("hwAvg").value;
+                firstBoxMissing = "";
+                secondBoxMissing = "";
+                thirdBoxMissing = "";
+                fourthBoxMissing = "";
+                n1 = parseInt(hwAvg);
+                if (isNaN(n1)){
+                    n1 = parseInt(n1, 10)
+                    firstBoxMissing += " Please enter a number in box one. ";
+                };
+
+                mtScore = document.getElementById("mtScore").value;
+                n2 = parseInt(mtScore, 10);
+                if (isNaN(n2)){
+                    secondBoxMissing += " Please enter a number in box two. ";
+                };
+
+                fnScore = document.getElementById("fnScore").value;
+                n3 = parseInt(fnScore, 10);
+                if (isNaN(n3)){
+                    thirdBoxMissing += " Please enter a number in box three. ";
+                };
+
+                ptScore = document.getElementById("ptScore").value;
+                n4 = parseInt(ptScore, 10);
+                if (isNaN(n4)){
+                    fourthBoxMissing += "Please enter a number in box four. ";
+                };
+
+                if ((typeof n1 === "number") && (typeof n2 === "number") && (typeof n3 === "number" ) && (n1>0 && n1<101) && (n2>0 && n2<101) && (n3>0 && n3<101) && (n4>0 && n4<101)){
+                    finalAvg = (0.5* hwAvg) + (0.2 * mtScore) + (0.2 * fnScore) + (0.1 * ptScore);
+                    if (finalAvg >= 90){
+                        finalStudentGrade = "A";
+                    };
+                    if (finalAvg >= 80 && finalAvg <= 89){
+                        finalStudentGrade = "B";
+                    };
+                    if (finalAvg >= 70 && finalAvg <= 79){
+                        finalStudentGrade = "C";
+                    };
+                    if (finalAvg >= 60 && finalAvg <= 69){
+                        finalStudentGrade = "D. Student must retake the course";
+                    };
+                    if (finalAvg >= 0 && finalAvg <= 59){
+                        finalStudentGrade = "F. Student must retake the course";
+                    };
+
+                document.forms["myForm"].elements["result"].value = ("The inputted numbers were " + n1 + ", " + n2 + ", " + n3 + ", " + n4 + ".\n The final average of the scores is " + finalAvg + ". This gives you a(n) " + finalStudentGrade + ".");
+                } else {
+                document.forms["myForm"].elements["result"].value = ("Please enter whole numbers between 0-100 for the four integers. " + firstBoxMissing + secondBoxMissing + thirdBoxMissing + fourthBoxMissing);
+                };
+            }
+        </script>
+    </head>
+    <body>
+<header>
+    <h1>
+Homework 2 - Basic Operations
+    </h1>
+</header>
+
+<section>
+<h2>
+<br>
+<a href="hw1.html">Home Page</a>
+<br>
+<a href="hw3.html">Homework 3 Main Page</a>
+<br>
+<a href="hw3Part2.html">Part 2</a>
+<br>
+
+<br>
+<form name="myForm">
+    <table>
+        <tr><td><label for="hwAvg">Homework Average Worth 50% </label>:</td>
+        <td><input type="text" name="hwAvg" id="hwAvg" size="10"></td></tr>
+        <br>
+        <tr><td><label for="mtScore">Mid-Term Score Worth 20% </label>:</td>
+        <td><input type="text" name="mtScore" id="mtScore" size="10"></td></tr>
+        <br>
+        <tr><td><label for="fnScore">Final Score Worth 20% </label>:</td>
+        <td><input type="text" name="fnScore" id="fnScore" size="10"></td></tr>
+        <br>
+        <tr><td><label for="ptScore">Participation Score Worth 10% </label>:</td>
+        <td><input type="text" name="ptScore" id="ptScore" size="10"></td></tr>
+        <br>
+        <td><input type="button" onclick="process()" value="SUBMIT"></td>
+        <td><input type="reset" value="RESET"></td>
+        <br>
+
+        <tr>
+        <td>Total Average is: </td>
+        <td><textarea name="result" placeholder="Answer" rows="7" cols="40" readonly></textarea></td>
+        </tr>
+        
+    </table>
+</form>
+</h2>
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>

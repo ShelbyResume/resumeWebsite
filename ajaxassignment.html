@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+        <meta name="JavaScript Class" content="JavaScript Practice Pages">
+        <title>JavaScript Class Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    	<link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+<h1>
+Homework 8 - AJAX Application
+</h1>
+
+<a href="hw1.html">Home Page</a>
+<br>
+<button type="button" onclick="loadDoc()">Get CD collection</button>
+<br><br>
+<table id="demo"></table>
+<br><br>
+
+
+<button type="button" onclick="myQRNGAPI()">Get 1 Random Number from 0-255</button>
+<br><br>
+<table id="QRNGdemo"></table>
+<br><br>
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    myFunction(this);
+  }
+  xhttp.open("GET", "cd_catalog.xml");
+  xhttp.send();
+}
+
+function myFunction(xml) {
+  const xmlDoc = xml.responseXML;
+  const x = xmlDoc.getElementsByTagName("CD");
+  let table="<tr><th>Artist</th><th>Title</th></tr>";
+  for (let i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+
+
+
+function myQRNGAPI(){
+  API_URL="https://api.quantumnumbers.anu.edu.au"
+  API_KEY="XjCUovtSHW6nf8hSd7lzK7DGMHmcUek49V6yergM"
+  QRNGnum = Math.floor(Math.random() * 256);
+  //curl -X GET -H "x-api-key:${API_KEY}" "${API_URL}?length=[1]&type=[unit8]&size=[1]"
+  document.getElementById("QRNGdemo").innerHTML = QRNGnum;
+  //https://api.quantumnumbers.anu.edu.au?length=1&type=uint8
+  //above requesting 1 random number between 0-255
+
+}
+
+</script>
+<h2>
+Why do we need the Quantum Random Number Generator?
+<br><br>
+This QRNG API gives a JSON file with truly random numbers. 
+<br><br>
+Admittedly, even the research papers behind the experiment admits this would only be useful for encryption, as a regular random number generator such as the one I am using now based on time would be more cost effective than the overkill of paying for a quantum random number generator with perfect 50/50 odds of getting a 1 or a 0.
+<br><br>
+To access these numbers, you need an access key from the Australian National University.
+<br><br>
+The first 100 numbers a month are free. After that it will cost US $0.005/request, or our company can contact the ANU to get a custom quote.
+<a href="//quantumnumbers.anu.edu.au/pricing">Pricing</a>
+<br><br>
+The documentation for our software engineers is here: 
+<a href="//quantumnumbers.anu.edu.au/documentation">API Documentation</a>
+<br><br>
+Admittedly our software engineers would also have to learn jQuery to use this particular API, not insurmountable but definitely a time commitment.
+</h2>
+</body>
+</html>

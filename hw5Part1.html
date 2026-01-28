@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="JavaScript Class" content="JavaScript Practice Pages">
+        <title>JavaScript Class Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    	<link rel="stylesheet" href="styles.css">
+
+        <script>
+            function process(){
+
+                var doubleCheck1 = true;
+                var doubleCheck2 = true;
+                var doubleCheck3 = true;
+                var doubleCheck4 = true;
+            var finalResult = "";
+            var resultBox = document.getElementsByName("result")[0];
+                resultBox.value = "";
+            var nameInput = document.getElementById("personName").value;
+            if (nameInput === "") {
+                doubleCheck1 = false;
+                resultBox.value += "Name Not Entered\n";
+            }
+            
+            var check1 = document.getElementById("lessThan21").checked;
+            var check2 = document.getElementById("21to50").checked;
+            var check3 = document.getElementById("moreThan50").checked;
+            if ((check1===false) && (check2===false) && (check3===false)){
+                doubleCheck2 = false;
+                resultBox.value += "Age Not Clicked\n";
+            }
+
+            var checkFireFox = document.getElementById("FireFox").checked;
+            var checkEdge = document.getElementById("edge").checked;
+            var checkChrome = document.getElementById("Chrome").checked;
+            var checkSafari = document.getElementById("Safari").checked;
+            var checkOpera = document.getElementById("Opera").checked;
+            var checkInternetExplorer = document.getElementById("Internet Explorer").checked;
+            if ((checkFireFox===false) && (checkEdge===false) && (checkChrome===false) && (checkSafari===false) && (checkOpera===false) && (checkInternetExplorer===false)){
+                doubleCheck3 = false;
+                resultBox.value += "No Browers Selected\n";
+            }
+
+            var myMovieInput = document.getElementById("myInputMovie").value;
+            if (myMovieInput === "" || myMovieInput === "Select a Genre") {
+                doubleCheck4 = false;
+                resultBox.value += "No Movie Genre Selected \n";
+            }
+            if (doubleCheck1 === false || doubleCheck2 === false || doubleCheck3 === false || doubleCheck4 === false)
+            resultBox.value += "Please enter the missing values. \n";
+            else 
+            resultBox.value += "Thanks, your data was submitted. \n";
+        }
+
+        </script>
+
+    </head>
+    <body>
+<header>
+Homework 5 - Part 1
+</header>
+
+<section>
+
+<br>
+<a href="hw1.html">Home Page</a>
+<br>
+<br>
+<a href="hw5Part2.html">Part 2</a>
+<br>
+This page should detect and let the user know if they correctly entered a name, age, browser, and favorite movie genre.
+<br>
+<br>
+<form name="myForm">
+<label for="userInputName">Your Name:</label>
+<input type="text" id="personName" name="userInputName" placeholder="Enter your full name.">
+  <fieldset>
+    <legend>Your Age:</legend>
+    <div>
+      <input type="radio" id="lessThan21" name="userInputName"/>
+      <label for="lessThan21">Less Than 21</label>
+    </div>
+    <div>
+      <input type="radio" id="21to50" name="userInputName" />
+      <label for="21to50">Between 21 and 50</label>
+    </div>
+    <div>
+      <input type="radio" id="moreThan50" name="userInputName"/>
+      <label for="moreThan50">More Than 50</label>
+    </div>
+  </fieldset>
+  <fieldset>
+        <div>    
+        <label for="userInput">Internet Browsers You Have Used:</label>
+        <br>
+        <input type="checkbox" name="userInputBrowser" id="FireFox">
+        <label>FireFox</label>
+        <br>
+        <input type="checkbox" name="userInputBrowser" id="edge">
+        <label>Edge</label>
+        <br>
+        <input type="checkbox" name="userInputBrowser" id="Chrome">
+        <label>Chrome</label>
+        <br>
+        <input type="checkbox" name="userInputBrowser" id="Safari">
+        <label>Safari</label>
+        <br>
+        <input type="checkbox" name="userInputBrowser" id="Opera">
+        <label>Opera</label>
+        <br>
+        <input type="checkbox" name="userInputBrowser" id="Internet Explorer">
+        <label>Internet Explorer</label>
+        <br>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div>
+        <input type="text" id="myInputMovie" list="myDatalist" name="userInputMovie">
+        <datalist id="myDatalist">
+            <option value="Select a Genre" id="Select"></option>
+            <option value="Action" id="Action"></option>
+            <option value="Comedy" id="Comedy"></option>
+            <option value="Drama" id="Drama"></option>
+            <option value="Documentary" id="Documentary"></option>
+            <option value="Science Fiction" id="Science Fiction"></option>
+        </datalist>
+        <label for="myInput">Choose your favorite movie genre.</label>
+    </div>
+    </fieldset>
+    <input type="button" onclick="process()" value="SUBMIT">
+    <textarea name="result" placeholder="Was the button clicked?" rows="7" cols="40"></textarea>
+    <input type="button" onclick="reset()" value="RESET">
+    <br>
+    </form>
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>

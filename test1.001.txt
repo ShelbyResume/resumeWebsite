@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JavaScript Class Page</title>
+<link rel="stylesheet" href="styles.css">
+
+<script>
+
+// --------------- BACKGROUND COLOR -----------------
+
+function switchStyle(style) {
+    const body = document.getElementById("body");
+
+    body.classList.remove("purple", "yellow", "orange", "red");
+
+    if (style === 0) body.classList.add("purple");
+    if (style === 1) body.classList.add("yellow");
+    if (style === 2) body.classList.add("orange");
+    if (style === 3) body.classList.add("red");
+}
+
+// --------------- FONT STYLE CHECKBOXES -----------------
+
+function updateTextStyles() {
+    const mainText = document.querySelector("main");
+
+    mainText.classList.toggle("bold", document.getElementById("bold").checked);
+    mainText.classList.toggle("italic", document.getElementById("italics").checked);
+    mainText.classList.toggle("underline", document.getElementById("underline").checked);
+}
+
+// --------------- FONT SIZE DROPDOWN -----------------
+
+function selectFontSize() {
+    const mainText = document.querySelector("main");
+    const size = document.getElementById("fonts").value;
+
+    mainText.classList.remove("small", "medium", "large");
+    mainText.classList.add(size);
+}
+
+</script>
+
+<style>
+/* SAMPLE STYLES (you can move these to styles.css) */
+
+.purple { background: #d5b3ff; }
+.yellow { background: #fff8a6; }
+.orange { background: #ffcf99; }
+.red    { background: #ffb3b3; }
+
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+.underline { text-decoration: underline; }
+
+.small { font-size: 0.8rem; }
+.medium { font-size: 1.1rem; }
+.large { font-size: 1.4rem; }
+
+main { padding: 1rem; }
+</style>
+
+</head>
+
+<body id="body">
+
+<header>
+    <h1>Homework 7 - Part 1 Styling Using Scripts</h1>
+</header>
+
+<main>
+    <p><strong>Paragraph one:</strong><br>
+    Mr. Shelby Argabrtie's thoughts today.<br>
+    - I have above a 3.0 at CSM<br>
+    - I am an American citizen since birth<br>
+    - Love my car, 2019 Toyota Corolla<br>
+    - I love my girlfriend of 8 years with all my heart<br>
+    - I hope she says yes when I propose after graduation.</p>
+
+    <p><strong>Paragraph two:</strong> (End of College Essay, Culture Shock)<br>
+    A piece of writing advice I once got is “Is this the most interesting part
+    of your character’s life, and if not, why aren’t you showing me that?”<br>
+    So there is my story of the most interesting part of my time spent abroad.</p>
+
+    <p><strong>Paragraph three:</strong><br>
+    Always look on the bright side of life.<br>
+    I am grateful for my loving relationship with Marina Omote.<br>
+    I am grateful for owning all the consoles and working in video games.<br>
+    I am grateful for modern medical care.<br>
+    To quote Hamilton: “Look around at how lucky we are to be alive right now.”</p>
+</main>
+
+<section>
+<h2>Controls</h2>
+
+<form id="myform">
+
+    <strong>Background Color</strong><br>
+    <input type="radio" name="color" onclick="switchStyle(0)"> Purple<br>
+    <input type="radio" name="color" onclick="switchStyle(1)"> Yellow<br>
+    <input type="radio" name="color" onclick="switchStyle(2)"> Orange<br>
+    <input type="radio" name="color" onclick="switchStyle(3)"> Red<br><br>
+
+    <strong>Font Styling</strong><br>
+    <input type="checkbox" id="bold" onclick="updateTextStyles()"> Bold<br>
+    <input type="checkbox" id="italics" onclick="updateTextStyles()"> Italic<br>
+    <input type="checkbox" id="underline" onclick="updateTextStyles()"> Underlined<br><br>
+
+    <strong>Font Size</strong><br>
+    <select id="fonts" onchange="selectFontSize()">
+        <option value="small">Small</option>
+        <option value="medium" selected>Medium</option>
+        <option value="large">Large</option>
+    </select>
+
+</form>
+
+</section>
+
+</body>
+</html>

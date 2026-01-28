@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="JavaScript Class" content="JavaScript Practice Pages">
+        <title>JavaScript Class Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    	<link rel="stylesheet" href="styles.css">
+        <script>
+
+            //The main focus should be that your cookie is registered and that you can read from it - 
+            // I will not bother if I have to manually delete the cookie myself because browsers have changed 
+            // to increase security and some will not allow you to register cookies without expiration date 
+            // and/or path.
+            function refereshPage(){
+                history.go(0);
+            }
+
+        function createCookies() {
+        var cName = "username";
+        var cValue = document.getElementById("user").value;
+        var cName2 = "username2";
+        var cValue2 = document.getElementById("name").value;
+        let expires = "expires=Fri, 1 Jan 9999 00:00:00 GMT";
+        document.cookie = cName + "=" + cValue + "; " + expires + "; path=/;";
+        document.cookie = cName2 + "=" + cValue2 + "; " + expires + "; path=/;";
+        }
+
+        function getCookies(cName) {
+        var name = cName + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+        }
+        return "";
+        }
+
+        function checkCookies() {
+        var user = getCookies("username");
+        var user2 = getCookies("username2");
+        if (user != "" && user2 != "") {
+        console.log(user);
+        console.log(user2);
+        document.getElementById("result").innerHTML = "Welcome back " + user2 + " with username " + user + ".";
+        document.getElementById("myform").style.display = "none";
+        
+        } else {
+        document.getElementById("myform").style.display = "block";
+            }
+        }
+
+        </script>
+    </head>
+    
+    <body>
+<header>
+    <h1>
+Homework 7 - Part 2 Cookies
+    </h1>
+</header>
+
+<section>
+<h2>
+<br>
+<a href="hw1.html">Home Page</a>
+<br>
+<br>
+<a href="hw7Part1.html">Part 1</a>
+
+<br>
+</h2>
+<br>
+<body onload="checkCookies();">
+
+<section>
+
+<h2>Working with Cookies</h2>
+This page will save a name and username until you delete your cookies (browsing history).
+<p id="result"></p>
+<div id="myform" style="display: block;">
+<form>
+<label for="name">Type your name: </label> <input type="text" name="name" id="name">
+<br><br>
+<label for="user">Type your username: </label> <input type="text" name="user" id="user">
+<br><br>
+<input type="button" value="Create Cookies" onclick="createCookies();"><br>
+<input type="reset" value="Clear Form">
+</form>
+<div>
+
+</div></div>
+
+<form>
+    <br>
+<input type="button" value="Refresh Page" onclick="refereshPage();"><br></form>
+</section>
+
+
+</body>
+
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>

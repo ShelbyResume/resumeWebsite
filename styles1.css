@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	padding: 0.05em;
+}
+html {
+    
+	background-color: rgba(255, 234, 115, 0.404);
+}
+header {
+
+    font-size: 125%;
+}
+body {
+    font-size: large;
+}
+ul, li {
+    list-style-type: circle;
+    list-style-position: inside;
+}
+aside {
+    float: left;
+}
+section {
+    float: right;
+}

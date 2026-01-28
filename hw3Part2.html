@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="JavaScript Class" content="JavaScript Practice Pages">
+        <title>Homework 3 - Part 2</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    	<link rel="stylesheet" href="styles.css">
+        <script>
+            function process()
+            {
+                var item1Total, item2Total, item3Total, item4Total, item1, QuantItem1, numItem1, item2, QuantItem2, numItem2, item3, QuantItem3, numItem3, item4, QuantItem4, numItem4, totalAmountSold, totalSalesPersonMoney, startingError ;
+                startingError = "error.";
+                result = "";
+                numItem1 = 0;
+                numItem2 = 0;
+                numItem3 = 0;
+                numItem4 = 0;
+                item1 = 20.99;
+                item2 = 12.75;
+                item3 = 9.95;
+                item4 = 35.89;
+                const sevenHundred = 700;
+                QuantItem1 =  document.getElementById("numItem1").value;
+                numItem1 = parseInt(QuantItem1, 10);
+                if (isNaN(numItem1)|| typeof(numItem1)=="string"){
+                    numItem1 = 0;
+                };
+
+                QuantItem2 = document.getElementById("numItem2").value;
+                numItem2 = parseInt(QuantItem2, 10);
+                if (isNaN(numItem2)|| typeof(numItem2)=="string"){
+                    numItem2 = 0;
+                };
+                QuantItem3 = document.getElementById("numItem3").value;
+                numItem3 = parseInt(QuantItem3, 10);
+                if (isNaN(numItem3)|| typeof(numItem3)=="string"){
+                    numItem3 = 0;
+                };
+
+                QuantItem4 = document.getElementById("numItem4").value;
+                numItem4 = parseInt(QuantItem4, 10);
+                if (isNaN(numItem4) || typeof(numItem4)=="string"){
+                    numItem4 = 0;
+
+                };
+                if ((numItem1 <0) ||(numItem2<0) || (numItem3<0) || (numItem4<0)){
+                    document.forms["myForm"].elements["totalAmountSold"].value = "Error";
+                } else {
+                    totalAmountSold = (numItem1*item1)+(numItem2*item2)+(numItem3*item3)+(numItem4*item4);
+                totalAmountSold = totalAmountSold.toFixed(2);
+                document.forms["myForm"].elements["totalAmountSold"].value = "$" + totalAmountSold;
+
+                document.forms["myForm"].elements["item1"].value = "$" +(numItem1*item1).toFixed(2);
+                document.forms["myForm"].elements["item2"].value = "$" +(numItem2*item2).toFixed(2);
+                document.forms["myForm"].elements["item3"].value = "$" +(numItem3*item3).toFixed(2);
+                document.forms["myForm"].elements["item4"].value = "$" + (numItem4*item4).toFixed(2);
+
+                totalSalesPersonMoney = (totalAmountSold*0.09) +  250;
+            
+                document.forms["myForm"].elements["totalSalesPersonMoney"].value = "$" + totalSalesPersonMoney.toFixed(2);
+                }
+            };
+        </script>
+    </head>
+    <body>
+<header>
+    <h1>
+Homework 3 - Part 2
+
+    </h1>
+</header>
+<h2>Calculating goods sold by a salseman who gets $250/week base pay and a 9% commission.
+<section>
+
+<br>
+<a href="hw1.html">Home Page</a>
+<br>
+<a href="hw3.html">Homework 3 Main Page</a>
+<br>
+<a href="hw3Part1.html">Part 1</a>
+
+<br>
+<table cellspacing="5"><caption>Sale Price per item #</caption>
+<tbody>
+<tr>
+<th scope="row">Item</th>
+<th scope="row">Value</th>
+</tr>
+<tr>
+<td style="border: 1px dotted gray;">1</td>
+<td style="border: 1px dotted gray;">20.99</td>
+</tr>
+<tr>
+<td style="border: 1px dotted gray;">2</td>
+<td style="border: 1px dotted gray;">12.75</td>
+</tr>
+<tr>
+<td style="border: 1px dotted gray;">3</td>
+<td style="border: 1px dotted gray;">9.95</td>
+</tr>
+<tr>
+<td style="border: 1px dotted gray;">4</td>
+<td style="border: 1px dotted gray;">35.89</td>
+</tr>
+</tbody>
+</table>
+</section>
+</h2>
+<h3>
+<form name="myForm">
+    <table>
+        <tr><td><label for="QuantityItem1">Quantity Item 1</label>:</td>
+        <td><input type="text" name="numItem1" id="numItem1" size="10"></td></tr>
+        <br>
+        <tr><td><label for="QuantityItem2">Quantity Item 2</label>:</td>
+        <td><input type="text" name="numItem2" id="numItem2" size="10"></td></tr>
+        <br>
+        <tr><td><label for="QuantityItem3">Quantity Item 3</label>:</td>
+        <td><input type="text" name="numItem3" id="numItem3" size="10"></td></tr>
+        <br>
+    <tr><td><label for="QuantityItem4">Quantity Item 4</label>:</td>
+        <td><input type="text" name="numItem4" id="numItem4" size="10"></td></tr>
+        <br>
+        <td><input type="button" onclick="process()" value="SUBMIT"></td>
+        <td><input type="reset" value="RESET"></td>
+        <br>        
+
+        <tr><td><label for="QuantItem1">Total Sold Items 1</label>:</td>
+        <td><input type="text" name="item1" id="items1" size="10" readonly></td></tr>
+        <br>
+        <tr><td><label for="QuantItem2">Total Sold Items 2</label>:</td>
+        <td><input type="text" name="item2" id="items2" size="10" readonly></td></tr>
+        <br>
+        <tr><td><label for="QuantItem3">Total Sold Item 3</label>:</td>
+        <td><input type="text" name="item3" id="items3" size="10" readonly></td></tr>
+        <br>
+        <tr><td><label for="QuantItem4">Total Sold Item 4</label>:</td>
+        <td><input type="text" name="item4" id="items4" size="10" readonly></td></tr>
+        <tr><td><br><label for="totalAmountSold">Total Price All Items</label>:</td>
+        <td><br><input type="text" name="totalAmountSold" id="totalAmountSold" size="10" readonly></td></tr>
+        <tr><td><label for="totalSalesPersonMoney">Total Sales Person Commission and Bonus</label>:</td>
+        <td><input type="text" name="totalSalesPersonMoney" id="totalSalesPersonMoney" size="10" readonly></td></tr>
+        
+    </table>
+</form>
+</h3>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>

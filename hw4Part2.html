@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="JavaScript Class" content="JavaScript Practice Pages">
+        <title>JavaScript Class Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    	<link rel="stylesheet" href="styles.css">
+        <script>
+            
+            function process()
+            {
+                var multiplier1, result1, htmlOutput;
+                htmlOutput = "";
+                multiplier1 = 9;
+                result1 = 1;
+
+                htmlOutput += "<table><tr><th>Number</th><th>Multiplier</th><th>Result</th></tr>";
+                    for (var i = 0; (i <= 0); i=i+1){
+
+                        for(var j = 1; (j<=9); j=j+1){
+                            result1 = j*multiplier1;
+                            htmlOutput += ("<tr><th>" + j.toLocaleString() + "</th><th>" + multiplier1 + "</th><th>" + result1.toLocaleString() + "</th></tr>");
+                            //(j.toLocaleString() + " " + multiplier1.toLocaleString() + " " + result1.toLocaleString()) + " \n";
+                        }
+                    }
+                    htmlOutput += "</table>";
+                    document.getElementById("theTable").innerHTML = htmlOutput;
+                    document.forms["myForm"].elements["result"].value = htmlOutput;
+                }
+                
+        </script>
+    </head>
+    <body onload="process();">
+<header>
+    <h1>
+Homework 4 - Looping Operations
+    </h1>
+</header>
+
+<section>
+<h2>
+<br>
+<a href="hw1.html">Home Page</a>
+<br>
+<a href="hw4.html">Homework 4 Main Page</a>
+<br>
+<a href="hw4Part1.html">Part 1</a>
+<br>
+
+<br>
+
+<form name="myForm">
+    <input type="button" onclick="process()" value="CALCULATE">
+    <div id="theTable"></div>
+    The result of the loops for debugging are:
+    <textarea name="result" placeholder="Answer" rows="10" cols="40" readonly></textarea>
+</form>
+</h2>
+</section>
+
+<footer>
+</footer>
+
+</body>
+
+</html>

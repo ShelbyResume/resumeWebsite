@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="JavaScript Class" content="JavaScript Practice Pages">
+        <title>JavaScript Class Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    	<link rel="stylesheet" href="styles.css">
+        <script>
+            function function1(){
+                var count = 0;
+                var charToTest = document.getElementById("charEnteredID").value;
+                var regexCheck = /^[a-zA-Z]{1}$/;
+                var isValid = regexCheck.test(charToTest);
+                var key = charToTest.toLowerCase();
+
+                var longContent = document.getElementById("longContentID").value;
+                var longContentLower = longContent.toLowerCase();
+
+                if (isValid === true){
+                    for (i=0; i<longContentLower.length; i++){
+                        if (longContentLower.charAt(i) == key)
+                        count++;
+                    }
+                    if (count == 0){
+                        myText = "Search character " + charToTest + " not found in the content you typed." + "<input type='button' value = 'Close Window' onclick = 'window.close()'>";
+                        
+                        var myWindow = window.open("", "newWindow", "width=300,height=100,top=1,left=2000,resizable,scrollbars,menubars,status,location,toolbar");
+                        myWindow.focus();
+                        myWindow.document.write(myText);
+                    } else {
+                        document.getElementById("outputID").value = count + " occurance(s) of " + charToTest + " found."
+                    }
+                    
+                }else if (isValid === false){
+                    document.getElementById("outputID").value = "Please enter 1 character from A-Z.";
+                }
+            }
+        </script>
+    </head>
+    <body>
+<header>
+    <h1>
+Homework 6 - Part 2 String Methods
+    </h1>
+</header>
+
+<section>
+<h2>
+<br>
+<a href="hw1.html">Home Page</a>
+<br>
+<br>
+<a href="hw6Part1.html">Part 1</a>
+
+<br>
+</h2>
+<br>
+Please enter a letter in the first box and a paragraph in the long content box.
+<form name="myForm">
+    <input type="button" onclick="function1()" value="SUBMIT">
+    <input type="reset" value="RESET">
+    <br>
+    <textarea name="charEntered" id="charEnteredID" placeholder="Ex: A" maxlength="1" rows="1" cols="40"></textarea>
+    <br>
+    <textarea name="longContent" id="longContentID" placeholder="Long content here." rows="10" cols="40"></textarea>
+    <br>
+    <textarea name="output" id="outputID" placeholder="Results here" rows="5" cols="40"></textarea>
+</form>
+
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>

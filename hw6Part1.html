@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="JavaScript Class" content="JavaScript Practice Pages">
+        <title>JavaScript Class Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    	<link rel="stylesheet" href="styles.css">
+        <script>
+            function doMath(){
+                //gets the info from text area dataEnteredID parsed as a float
+                var floatEntered = parseFloat(document.getElementById("dataEnteredID").value.trim());
+                var stringEntered = String(floatEntered);
+                var regexCheck = /^\d+\.\d{4,12}$/;
+                var isValid = regexCheck.test(floatEntered);
+
+                
+                if (isValid === true){
+                    document.getElementById("answerOutputID").value = "You entered " + String(floatEntered) + "\n";
+                    var finalResultInt = Math.round(floatEntered);
+                    document.getElementById("answerOutputID").value += "Nearest integer = " + String(finalResultInt) + "\n";
+                    var finalResultSqrtInt = Math.round(Math.sqrt(floatEntered));
+                    document.getElementById("answerOutputID").value += "Nearest integer of the square root = " + String(finalResultSqrtInt) + "\n";
+                    var finalResultNearestTenth = Math.floor(floatEntered * 10 + 0.5)/10;
+                    document.getElementById("answerOutputID").value += "Nearest tenth = " + String(finalResultNearestTenth.toFixed(1)) + "\n";
+                    var finalResultNearestHundreth = Math.floor(floatEntered * 100 + 0.5)/100;
+                    document.getElementById("answerOutputID").value += "Nearest hundreth = " + String(finalResultNearestHundreth.toFixed(2)) + "\n";
+                    var finalResultNearestThousandth = Math.floor(floatEntered * 1000 + 0.5)/1000;
+                    document.getElementById("answerOutputID").value += "Nearest thousandth = " + String(finalResultNearestThousandth.toFixed(3)) + "\n";
+                }else if (isValid === false){
+                    document.getElementById("answerOutputID").value = "Please enter a number with 4-12 decimal places.";
+                }
+            }
+        </script>
+    </head>
+    <body>
+<header>
+    <h1>
+Homework 6 - Part 1 Math!
+    </h1>
+</header>
+
+<section>
+<h2>
+<br>
+<a href="hw1.html">Home Page</a>
+<br>
+<br>
+<a href="hw6Part2.html">Part 2</a>
+
+<br>
+</h2>
+<br>
+Please enter a number with at least 4 decimal places and click submit to recieve math results.
+<form name="myForm">
+    <input type="button" onclick="doMath()" value="SUBMIT">
+    <input type="reset" value="RESET">
+    <br>
+    <textarea name="dataEntered" id="dataEnteredID" placeholder="Ex: 3.1415" rows="1" cols="40"></textarea>
+    <br>
+    <textarea name="answer" id="answerOutputID" placeholder="Results Here" rows="10" cols="40" readonly></textarea>
+</form>
+
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>
