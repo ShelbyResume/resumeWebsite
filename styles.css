@@ -24,9 +24,8 @@ table, th, td {
 }
 #rightForm-id{
   float:right;
-}{
-
 }
+
 tr:nth-child(even) {
 	background-color:lightgray;
 }
